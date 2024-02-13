@@ -1,0 +1,23 @@
+{{ block "tasksLayout" . -}}
+<div id="tasks">
+    {{ range $key, $value := .TasksByStatus -}}
+        {{ template "statusLayout" $key }}
+        {{ range $value -}}
+            {{ template "taskLayout" . }}
+        {{- end }}
+    {{- end }}
+</div>
+{{- end }}
+
+{{ block "statusLayout" . -}}
+<div class="status">
+    <span>{{ .Name }}</span>
+</div>
+{{- end }}
+
+{{ block "taskLayout" . -}}
+<div class="task">
+    <span hx-put="/task/{{ .Id }}" hx-target="#tasks">{{ .Name }}</span>
+    <span>{{ .Description }}</span>
+</div>
+{{- end }}
