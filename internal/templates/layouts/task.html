@@ -19,5 +19,11 @@
 <div class="task">
     <span hx-put="/task/{{ .Id }}" hx-target="#tasks">{{ .Name }}</span>
     <span>{{ .Description }}</span>
+        {{ range .Tags -}}
+            <span style="background-color: {{ .Color }}">{{ .Name }}</span>
+        {{- end }}
+        {{ range .Users -}}
+            <span>{{ .Firstname }}</span>
+        {{- end }}
 </div>
 {{- end }}
