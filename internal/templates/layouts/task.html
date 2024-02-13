@@ -22,7 +22,7 @@
         {{ range .Tags -}}
             <span style="background-color: {{ .Color }}">{{ .Name }}</span>
         {{- end }}
-        {{ range .Users -}}
+        {{ range .Assignees -}}
             <span>{{ .Firstname }}</span>
         {{- end }}
 </div>
